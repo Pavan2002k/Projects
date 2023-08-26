@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head><title>SASTRA Deemed To Be University</title>
+<link rel="icon" href="Sastra.jpg" type="image/x-icon">
+<style>
+body{
+background-color:aqua;
+border-color:blue;
+border-width:1em;
+border-style:double;}
+input{
+color:blue;
+border-style:none;}
+h2{
+color:blue;}
+a{
+color:black;
+text-decoration:none;}
+</style>
+<script type="text/javascript">
+function fun(){
+var chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+var captcha="";
+for(var i=0;i<=3;i++){
+captcha+=chars.charAt(Math.floor(Math.random()*62));
+}
+document.form1.cap1.value=captcha;
+document.form1.cap.value="";
+}
+function login(){
+var output='';
+var col=['silver','yellow','gray','lime','aqua','purple','lightcoral','lightsalmon','green','red','orange','tomato','sky-blue','magenta','pink'];
+var c=parseInt(Math.floor(Math.random()*15));
+document.body.style.background=col[c];
+var result="<h3><center><img src='Sastra1.png' width='500'></center><br>";
+var reg=document.form1.text1.value;
+var bra=parseInt(reg[3]+reg[4]+reg[5]);
+var passw=document.form1.pas.value;
+var cg=document.form1.cap1.value;
+var ce=document.form1.cap.value;
+if(reg.length==0){
+fun();
+document.form1.dia.value="Please Enter Regester Number.";}
+else if(passw.length==0){
+fun();
+document.form1.dia.value="Please Enter the password.";}
+else if(ce.length==0)
+document.form1.dia.value="Please Enter the Captcha.";
+else if(ce!=cg){
+fun();
+document.form1.dia.value="Entered Captcha is wrong,Load other.",fun();
+cg="";}
+else if(reg.length!=9 || (reg[0]!='1' && reg[0]!='2')||(bra<0 || bra>5))
+document.form1.dia.value="Invalid Regester Number",fun();
+else if(reg!=passw)
+document.form1.dia.value="Invalid password.",fun();
+else{
+switch(reg[0]){
+case "1":
+result+="Campus:Main<br>";
+break
+case "2":
+result+="Campus:SRC<br>";
+}
+var y=parseInt(reg[1]+reg[2]);
+var cy=2021
+y=y+2000;
+var yj=y-4;
+var fy=((cy-yj)+1);
+result="Year of join:"+yj+"<br>";
+result+="Graduation year:"+y+"<br>";
+if (fy<=4)
+result+="Present year:"+fy+"year.<br>";
+else
+result+="Present year:Passed out in "+y+"<br>";
+switch(reg[3]+reg[4]+reg[5]){
+case "001":
+branch="IT";
+result+="Branch:IT<br>";
+break
+case "002":
+branch="ICT";
+result+="Branch:ICT<br>";
+break
+case "003":
+branch="CSE";
+result+="Branch:CSE<br>";
+break
+case "004":
+branch="ECE";
+result+="Branch:ECE<br>";
+break
+case "005":
+branch="EEE";
+result+="Branch:EEE<br>";
+}
+var roll=parseInt(reg[6]+reg[7]+reg[8]);
+result+="Roll Number:"+roll+"</br>";
+switch(fy){
+case 1:
+result+="<h2>Things has to be done by you as First Year Student are listed below.</h2>";
+result+="<ul><li>Culteral:<ol><li>Make more friends</li><li>Enjoy the University</li></ol></li><li>Academics:<ol><li>Learn C</li><li>Learn C++</li></ol></li></ul><br>";
+break
+case 2:
+result+="<h2>Things has to be done by you as Second Year Student are listed below.</h2>";
+result+="<ul><li>Culteral:<ol><li>Participate in Group Discussions</li><li>Improve your Communication skills</li></ol></li><li>Academics:<ol><li>Improve your c,c++ coding skills.</li><li>Learn "+branch+" subjects properly.</li></ol></li></ul><br>";
+break
+case 3:
+result+="<h2>Things has to be done by you as Third Year Student are listed below.</h2>";
+result+="<ul><li>Culteral:<ol><li>Participate in Cultural activities as much as possible.</li><li>conduct Workshops.</li></ol></li><li>Academics:<ol><li>Start Your mini Project</li><li>Start learning the Aptitude</li></ol></li></ul><br>";
+break
+case 4:
+result+="<h2>Things has to be done by you as Final Year Student are listed below.</h2>";
+result+="<ul><li>Culteral:<ol><li>No more Culteral.</li><li>Academics:</ol><li>Concentrate on placements.</li><li>All The Best for your Bright Future.</li></ol></li></ul><br>";
+break
+default:
+result+="<h2>We are feeling happy to had you as our student,Hope you are doing great.We wish you All the Best!</h2>";
+}
+result+="</h3>";
+document.write(result);
+}
+}
+window.addEventListener("load",fun,false);
+</script>
+</head>
+<form name="form1">
+<body style="">
+<center>
+<img src="Sastra1.png" width="500"><br><br>
+<h2>Note:SASTRA Located in two places(SRC & MAIN), Offers 5 Branches(IT,ICT,CSE,ECE,EEE)</h2>
+<label>RegNumber&nbsp &nbsp: <input type="text1" name="text1" id="reg" placeholder="Enter 9-digit number"></input></label><br><br>
+<label>Password &nbsp &nbsp &nbsp: <input type="password" name="pas" placeholder="Please Enter your RegNumber as password"></input></label><br><br>
+<label>Enter Captcha:<input type="text" id="cap" name="cap" placeholder="Click ⟳ for Captcha."></input></label><br><br>
+<label>Captcha: <input type="text" id="cap1" name="cap1" size="12"></input></label>
+<input type="button" id="lb" value="⟳" onclick="fun()"></input><br><br>
+<input type="button" id="ok" value="OK" onclick="login()" target="blank"></input><br><br>
+<input type="text" name="dia" size="30" class="bord" placeholder="You can't write anything here.(status)" readonly>
+<h4> &copy reserved by SASTRA 2021</h4></center>
+<h3>Designed By:Pavan Kumar</h3>
+<h3>Contact if any Error:</h3>
+<h3>Contact no:9182781509</h3>
+<h3>mail:<a href="mailto:naginenipavankumar08@gmail.com">Send Mail</a><h>
+</body>
+</form>
+</html>
